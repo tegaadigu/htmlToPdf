@@ -1,0 +1,17 @@
+FROM php:7-fpm
+
+RUN apt-get update && apt-get install -y libmcrypt-dev mysql-client \
+    && docker-php-ext-install mcrypt pdo_mysql
+
+ARG DEBIAN_FRONTEND=noninteractive
+# Download and install wkhtmltopdf
+RUN apt-get install -y apt-utils
+RUN apt-get install dialog
+RUN apt-get install -y xvfb
+RUN apt-get install -y wkhtmltopdf
+RUN  ln -s /usr/bin/wkhtmltopdf /usr/local/bin/wkhtmltopdf
+RUN ln -s /usr/bin/xvfb-run /usr/local/bin/xvfb-run
+
+RUN chmod -R 777 /var/www
+
+WORKDIR /var/www

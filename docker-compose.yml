@@ -1,0 +1,21 @@
+version: '2'
+services:
+    web:
+        container_name: "pdf-nginx"
+        build:
+            context: ./
+            dockerfile: ./docker-config/web.docker #nginx
+        volumes:
+            - ./:/var/www
+        ports:
+            - "80:80"
+            - "443:443"
+        links:
+            - app
+    app:
+        container_name: "pdf-php-fpm"
+        build:
+            context: ./
+            dockerfile: ./docker-config/app.docker #used for php-fpm
+        volumes:
+            - ./:/var/www

@@ -1,0 +1,32 @@
+{
+    "name": "HTML TO PDF CONVERTER",
+    "description": "Convert html page to pdf using wkhtmltopdf",
+    "license": "MIT",
+    "type": "project",
+    "require": {
+        "php": ">=5.6.4",
+        "barryvdh/laravel-snappy": "^0.3.3",
+        "laravel/framework": "5.4.*",
+        "laravel/tinker": "~1.0",
+        "microsoft/windowsazure": "^0.4"
+    },
+    "require-dev": {
+        "fzaninotto/faker": "~1.4",
+        "mockery/mockery": "0.9.*",
+        "phpunit/phpunit": "~5.7"
+    },
+    "autoload": {
+        "classmap": [
+            "database"
+        ],
+        "psr-4": {
+            "App\\": "app/",
+            "Converter\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "tests/"
+        }
+    }
+}
